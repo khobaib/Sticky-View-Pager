@@ -1,6 +1,4 @@
-package com.touhiDroid.vphorizontaltest;
-
-import java.util.Random;
+package com.techfiesta.stickyviewpager;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,29 +9,24 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.touhiDroid.vphorizontaltest.view.CompoundLinearLayout;
+import com.techfiesta.stickyviewpager.adapter.MainPagerAdapter;
+import com.techfiesta.stickyviewpager.view.CompoundLinearLayout;
+import com.techfiesta.stickyviewpager.view.PagerContainer;
 
-public class MainActivity2 extends Activity {
+public class ViewPagerActivity extends Activity {
 
 	private PagerContainer mContainer;
 	private ViewPager pager = null;
 	private MainPagerAdapter pagerAdapter = null;
-	private static int NUM_PAGE;
 
 	Button bAdd;
-
-	// public static int positionToRemove = -1;
 	public static View viewToRemove = null;
 
 	// -----------------------------------------------------------------------------
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
-		NUM_PAGE = new Random().nextInt(10) + 3;
-
-		// ... do other initialization, such as create an ActionBar ...
+		setContentView(R.layout.activity_view_pager);
 
 		pagerAdapter = new MainPagerAdapter();
 		mContainer = (PagerContainer) findViewById(R.id.pager_container);
@@ -46,7 +39,7 @@ public class MainActivity2 extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				addView((View) new CompoundLinearLayout(MainActivity2.this, 0), 0);
+				addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 0), 0);
 
 			}
 		});
@@ -61,10 +54,6 @@ public class MainActivity2 extends Activity {
 
 			@Override
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-				// Log.e(">>>>",
-				// "onPageScrolled - position, positionOffset, positionOffsetPixels = "
-				// + position + ", "
-				// + positionOffset + ", " + positionOffsetPixels);
 
 			}
 
@@ -72,10 +61,6 @@ public class MainActivity2 extends Activity {
 			public void onPageScrollStateChanged(int state) {
 				Log.e(">>>>", "onPageScrollStateChanged - state, positionToRemove = " + state + ", ");
 				if (state == ViewPager.SCROLL_STATE_IDLE && viewToRemove != null) {
-					// View view = pagerAdapter.getView(positionToRemove);
-
-					// Log.e("adhgfdhsmhfvsd", (view == null) ? "null view" :
-					// "view id = " + view.getId());
 					removeView(viewToRemove);
 					viewToRemove = null;
 				}
@@ -83,27 +68,14 @@ public class MainActivity2 extends Activity {
 			}
 		});
 
-		// Create an initial view to display; must be a subclass of FrameLayout.
-		// LayoutInflater inflater = getLayoutInflater();
-
-		// CompoundLinearLayout view = new
-		// CompoundLinearLayout(MainActivity2.this);
-
-		addView((View) new CompoundLinearLayout(MainActivity2.this, 0));
-		addView((View) new CompoundLinearLayout(MainActivity2.this, 1));
-		addView((View) new CompoundLinearLayout(MainActivity2.this, 2));
-		addView((View) new CompoundLinearLayout(MainActivity2.this, 3));
-		addView((View) new CompoundLinearLayout(MainActivity2.this, 4));
-		addView((View) new CompoundLinearLayout(MainActivity2.this, 5));
+		addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 0));
+		addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 1));
+		addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 2));
+		addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 3));
+		addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 4));
+		addView((View) new CompoundLinearLayout(ViewPagerActivity.this, 5));
 
 		pager.setCurrentItem(0);
-
-		// pagerAdapter.addView(new CompoundLinearLayout(MainActivity2.this),
-		// 0);
-		// pagerAdapter.addView(new CompoundLinearLayout(MainActivity2.this),
-		// 0);
-		// pagerAdapter.addView(new CompoundLinearLayout(MainActivity2.this),
-		// 0);
 	}
 
 	// -----------------------------------------------------------------------------

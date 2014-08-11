@@ -1,4 +1,4 @@
-package com.touhiDroid.vphorizontaltest;
+package com.techfiesta.stickyviewpager.view;
 
 /*
  * Copyright (c) 2012 Wireless Designs, LLC

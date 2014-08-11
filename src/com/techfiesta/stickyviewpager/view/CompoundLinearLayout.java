@@ -1,4 +1,4 @@
-package com.touhiDroid.vphorizontaltest.view;
+package com.techfiesta.stickyviewpager.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.touhiDroid.vphorizontaltest.MainActivity2;
-import com.touhiDroid.vphorizontaltest.R;
+import com.techfiesta.stickyviewpager.R;
+import com.techfiesta.stickyviewpager.ViewPagerActivity;
 
 public class CompoundLinearLayout extends LinearLayout {
 
@@ -44,26 +44,9 @@ public class CompoundLinearLayout extends LinearLayout {
 				// Toast.makeText(context, "hi, I am at pos = " + pos,
 				// Toast.LENGTH_SHORT).show();
 				// MainActivity2.positionToRemove = pos;
-				MainActivity2.viewToRemove = view;
+				ViewPagerActivity.viewToRemove = view;
 				markAsDelete = true;
-				((MainActivity2) getContext()).setNextPage(view);
-
-				// ((MainActivity2) getContext()).removeView(view);
-
-				// Handler h = new Handler();
-				// h.postDelayed(new Runnable() {
-				//
-				// @Override
-				// public void run() {
-				// // Method in Activity that removes the current object (I
-				// // believe this method is working fine and yes, it calls
-				// // notifyDataSetChanged())
-				// // parent.removeObject(currentObject);
-				// ((MainActivity2) getContext()).removeView(view);
-				// }
-				// }, 1000);
-				// PagerContainer.mNeedsRedraw = true;
-				// ((MainActivity2)view.getParent()).removeView(view);
+				((ViewPagerActivity) getContext()).setNextPage(view);
 			}
 		});
 

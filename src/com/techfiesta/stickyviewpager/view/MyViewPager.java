@@ -1,4 +1,4 @@
-package com.touhiDroid.vphorizontaltest.view;
+package com.techfiesta.stickyviewpager.view;
 
 import java.lang.reflect.Field;
 

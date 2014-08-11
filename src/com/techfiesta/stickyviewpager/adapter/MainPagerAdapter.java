@@ -1,4 +1,4 @@
-package com.touhiDroid.vphorizontaltest;
+package com.techfiesta.stickyviewpager.adapter;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-class MainPagerAdapter extends PagerAdapter {
+public class MainPagerAdapter extends PagerAdapter {
 	// This holds all the currently displayable views, in order from left to
 	// right.
 	private ArrayList<View> views = new ArrayList<View>();
